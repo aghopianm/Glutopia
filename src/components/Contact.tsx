@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import styled from "styled-components";
 import NavBar from "./NavBar";
+import Footer from "./Footer";
 
 const ContactContainer = styled.div`
   padding-top: 80px;
@@ -43,16 +44,16 @@ const TextArea = styled.textarea`
 
 const SubmitButton = styled.button`
   padding: 1rem 2rem;
-  background-color: #f8b042;
+  background-color: rgb(0, 170, 217);
   color: white;
   border: none;
   border-radius: 30px;
   font-size: 1.1rem;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: all 0.3s ease;
 
   &:hover {
-    background-color: #e9a033;
+  transform: scale(1.05);
   }
 `;
 
@@ -191,6 +192,7 @@ const Contact = () => {
           </ContactInfo>
         </Section>
       </ContactContainer>
+      <Footer />
     </>
   );
 };

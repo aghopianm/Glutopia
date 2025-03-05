@@ -3,7 +3,6 @@ import { Provider } from 'react-redux';
 import { store } from './store/store';
 import GlobalStyles from './styles/GlobalStyles';
 import Home from './components/Home';
-import Cart from './components/Cart';
 import About from './components/About';
 import Contact from './components/Contact';
 import Menu from './components/Menu';
@@ -16,7 +15,6 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Menu />} />
-          <Route path="/cart" element={<Cart />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>

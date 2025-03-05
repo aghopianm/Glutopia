@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import NavBar from './NavBar';
+import Footer from './Footer';
 
 const AboutContainer = styled.div`
   padding-top: 80px;
@@ -59,6 +60,7 @@ const About = () => {
           </Content>
         </Section>
       </AboutContainer>
+      <Footer />
     </>
   );
 };

@@ -1,15 +1,16 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
-import { fetchProducts } from '../store/productSlice';
-import type { AppDispatch, RootState } from '../store/store';
-import NavBar from './NavBar';
-import ProductGrid from './ProductGrid';
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import { fetchProducts } from "../store/productSlice";
+import type { AppDispatch, RootState } from "../store/store";
+import NavBar from "./NavBar";
+import ProductGrid from "./ProductGrid";
+import Footer from "./Footer";
 
 const HeroSection = styled.div`
   height: 90vh;
-  background: linear-gradient(135deg, #FFE5E5 0%, #FFB6C1 100%);
+  background: linear-gradient(135deg, #ffe5e5 0%, #ffb6c1 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,7 +26,7 @@ const HeroContent = styled.div`
 const Title = styled.h1`
   font-size: 4rem;
   margin-bottom: 1.5rem;
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   color: #333;
 `;
 
@@ -39,7 +40,7 @@ const Subtitle = styled.p`
 const CTAButton = styled.button`
   padding: 1.2rem 2.5rem;
   font-size: 1.2rem;
-  background-color:rgb(0, 170, 217);
+  background-color: rgb(0, 170, 217);
   border: none;
   border-radius: 30px;
   color: white;
@@ -57,11 +58,24 @@ const Section = styled.section`
   margin: 0 auto;
 `;
 
+const TitleWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+`;
+
+const ButterflyImage = styled.img`
+  height: 60px;
+  width: auto;
+`;
+
 const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { items, loading } = useSelector((state: RootState) => state.products);
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
@@ -71,17 +85,27 @@ const Home = () => {
       <NavBar />
       <HeroSection>
         <HeroContent>
-          <Title>Welcome to Glutopia Bakery</Title>
+          <TitleWrapper>
+            <ButterflyImage
+              src="/images/butterfly-1.jpg"
+              alt="Butterfly Logo"
+            />
+            <Title>Welcome to Glutopia Bakery</Title>
+          </TitleWrapper>
           <Subtitle>
-            Artisanal breads and pastries crafted with passion, 
-            using time-honored traditions and the finest ingredients
+            Absolutely everything we bake is gluten free. We believe that
+            everyone should be able to enjoy delicious treats, regardless of
+            dietary restrictions.
           </Subtitle>
-          <CTAButton onClick={() => navigate('/services')}>Explore our services</CTAButton>
+          <CTAButton onClick={() => navigate("/services")}>
+            Explore our services
+          </CTAButton>
         </HeroContent>
       </HeroSection>
       <Section>
         <ProductGrid products={items} loading={loading} />
       </Section>
+      <Footer />
     </>
   );
 };

@@ -13,6 +13,40 @@ const MenuContainer = styled.div`
   margin: 0 auto;
 `;
 
+const PriceSection = styled.div`
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+`;
+
+const PriceCategory = styled.div`
+  margin-bottom: 2rem;
+`;
+
+const PriceCategoryTitle = styled.h3`
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+  text-align: center;
+`;
+
+const PriceItem = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+`;
+
+const PriceNote = styled.p`
+  margin-top: 1rem;
+  font-style: italic;
+  color: #666;
+  text-align: center;
+`;
+
 const Title = styled.h1`
   font-size: 3rem;
   text-align: center;
@@ -83,10 +117,52 @@ const Photo = styled.img`
   }
 `;
 
-type Category = "all" | "weddings" | "birthdays" | "cupcakes";
+type Category = "all" | "weddings" | "birthdays" | "cupcakes" | "prices";
 type CategoryData = {
   description: string;
   photos: string[];
+};
+
+const priceList = {
+  cakes: {
+    title: "Celebration & Wedding Cakes",
+    items: [
+      {
+        name: '6" Round Cake (serves 8-10)',
+        price: "£35",
+      },
+      {
+        name: '8" Round Cake (serves 12-16)',
+        price: "£45",
+      },
+      {
+        name: '10" Round Cake (serves 20-25)',
+        price: "£60",
+      },
+      {
+        name: '12" Round Cake (serves 35-40)',
+        price: "£80",
+      },
+    ],
+    note: "All cakes can be customized to your specific requirements. For bespoke designs, wedding cakes, and special requests, please contact us for a personalized quote.",
+  },
+  cupcakes: {
+    title: "Cupcakes",
+    items: [
+      {
+        name: "Single Cupcake",
+        price: "£2",
+      },
+      {
+        name: "Box of 6 Cupcakes",
+        price: "£10",
+      },
+      {
+        name: "Box of 12 Cupcakes",
+        price: "£18",
+      },
+    ],
+  },
 };
 
 const categoryContent: Record<Exclude<Category, "all">, CategoryData> = {
@@ -120,7 +196,11 @@ const categoryContent: Record<Exclude<Category, "all">, CategoryData> = {
       "/images/cupcake-4.jpg",
     ],
   },
-} as const;
+  prices: {
+    description: "Our pricing structure for cakes and cupcakes.",
+    photos: []
+  }
+};
 
 const Menu = () => {
   const [activeCategory, setActiveCategory] = useState<Category>("weddings");
@@ -155,7 +235,41 @@ const Menu = () => {
           >
             Cupcakes
           </FilterButton>
+          <FilterButton
+            active={activeCategory === "prices"}
+            onClick={() => setActiveCategory("prices")}
+          >
+            Price List
+          </FilterButton>
         </CategoryFilter>
+        {activeCategory === "prices" ? (
+          <PriceSection>
+            <PriceCategory>
+              <PriceCategoryTitle>{priceList.cakes.title}</PriceCategoryTitle>
+              {priceList.cakes.items.map((item, index) => (
+                <PriceItem key={index}>
+                  <span>{item.name}</span>
+                  <span>{item.price}</span>
+                </PriceItem>
+              ))}
+              <PriceNote>{priceList.cakes.note}</PriceNote>
+            </PriceCategory>
+
+            <PriceCategory>
+              <PriceCategoryTitle>
+                {priceList.cupcakes.title}
+              </PriceCategoryTitle>
+              {priceList.cupcakes.items.map((item, index) => (
+                <PriceItem key={index}>
+                  <span>{item.name}</span>
+                  <span>{item.price}</span>
+                </PriceItem>
+              ))}
+            </PriceCategory>
+          </PriceSection>
+        ) : (
+          ""
+        )}
 
         {activeCategory in categoryContent && (
           <CategoryDescription>

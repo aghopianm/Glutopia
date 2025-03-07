@@ -6,6 +6,7 @@ import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
 import Menu from './components/Menu';
+import './components/styles.css';
 
 const App = () => {
   return (

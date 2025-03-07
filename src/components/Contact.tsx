@@ -32,6 +32,13 @@ const Input = styled.input`
   border: 1px solid #ddd;
   border-radius: 8px;
   font-size: 1rem;
+  background: #fafafa;
+  
+  &:focus {
+    outline: none;
+    border-color: rgb(0, 170, 217);
+    background: white;
+  }
 `;
 
 const TextArea = styled.textarea`
@@ -40,6 +47,13 @@ const TextArea = styled.textarea`
   border-radius: 8px;
   font-size: 1rem;
   min-height: 150px;
+  background: #fafafa;
+  
+  &:focus {
+    outline: none;
+    border-color: rgb(0, 170, 217);
+    background: white;
+  }
 `;
 
 const SubmitButton = styled.button`
@@ -53,7 +67,7 @@ const SubmitButton = styled.button`
   transition: all 0.3s ease;
 
   &:hover {
-  transform: scale(1.05);
+  transform: scale(1.01);
   }
 `;
 

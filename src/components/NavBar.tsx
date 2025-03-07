@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { SocialIcon } from './SocialIcon';
 
 const Nav = styled.nav`
   position: fixed;
@@ -19,25 +20,6 @@ const NavContainer = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
-const EtsyLogo = styled.img`
-  height: 22px;
-  width: auto;
-  margin-top: 2px;
-`;
-
-const EtsyLink = styled.a`
-  display: flex;
-  align-items: center;
-  transition: opacity 0.2s ease;
-  padding-top: 2px;
-  justify-content: center;
-
-  &:hover {
-    opacity: 0.8;
-  }
-`;
-
-
 const Logo = styled(Link)`
   font-size: 1.5rem;
   font-family: 'Pacifico', cursive;
@@ -45,7 +27,6 @@ const Logo = styled(Link)`
   text-decoration: none;
   text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
 `;
-
 
 const NavLinks = styled.div<{ isOpen: boolean }>`
   display: flex;
@@ -102,17 +83,12 @@ const NavBar = () => {
           <NavLink to="/services" onClick={() => setIsMenuOpen(false)}>Services</NavLink>
           <NavLink to="/about" onClick={() => setIsMenuOpen(false)}>About</NavLink>
           <NavLink to="/contact" onClick={() => setIsMenuOpen(false)}>Contact</NavLink>
-          <EtsyLink 
-            href="https://www.etsy.com/uk/shop/GlutopiaCakeBoutique" 
-            target="_blank" 
-            rel="noopener noreferrer"
-          >
-            <EtsyLogo src="/images/etsy.jpg" alt="Etsy Shop" />
-          </EtsyLink>
+          <SocialIcon platform="instagram" />
+          <SocialIcon platform="facebook" />
+          <SocialIcon platform="etsy" />
         </NavLinks>
       </NavContainer>
     </Nav>
   );
 };
-
 export default NavBar;

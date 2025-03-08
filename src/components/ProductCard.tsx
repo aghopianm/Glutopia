@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { useDispatch } from 'react-redux';
 import type { Product } from '../types/types';
 
 const Card = styled.div`

@@ -1,3 +1,4 @@
+import { memo, useMemo } from 'react';
 import { useSelector } from "react-redux";
 import type { RootState } from "../../store/store";
 import type { Product } from "../../types/types";
@@ -12,14 +13,14 @@ import { MenuContainer, Title } from "./styles";
 
 export type Category = "weddings" | "birthdays" | "cupcakes" | "prices";
 
-const Menu = () => {
-  // Remove useState and use Redux state instead
+const Menu = memo(() => {
   const activeCategory = useSelector((state: RootState) => state.menu.activeCategory);
   const { items, loading } = useSelector((state: RootState) => state.products);
 
-  const filteredProducts = items.filter((product: Product) => {
-    return product.category === activeCategory;
-  });
+  const filteredProducts = useMemo(() => 
+    items.filter((product: Product) => product.category === activeCategory),
+    [items, activeCategory]
+  );
 
   return (
     <>
@@ -43,6 +44,8 @@ const Menu = () => {
       <Footer />
     </>
   );
-};
+});
+
+Menu.displayName = 'Menu';
 
 export default Menu;

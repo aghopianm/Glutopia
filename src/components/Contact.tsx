@@ -199,7 +199,7 @@ const Contact = () => {
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
-                referrerPolicy="no-referrer-when-downgraded"
+                referrerPolicy="no-referrer-when-downgrade"
                 title="Our Location"
               />
             </MapContainer>

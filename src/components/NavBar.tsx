@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { SocialIcon } from './SocialIcon';
+import { useState } from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { SocialIcon } from "./SocialIcon";
 
 const Nav = styled.nav`
   position: fixed;
@@ -20,12 +20,15 @@ const NavContainer = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
+const LogoImage = styled.img`
+  height: 60px; // Adjust this value to match your desired logo size
+  width: auto;
+`;
+
 const Logo = styled(Link)`
-  font-size: 1.5rem;
-  font-family: 'Pacifico', cursive;
-  color: #ff69b4; /* Hot Pink */
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
 `;
 
 const NavLinks = styled.div<{ isOpen: boolean }>`
@@ -33,7 +36,7 @@ const NavLinks = styled.div<{ isOpen: boolean }>`
   gap: 2rem;
 
   @media (max-width: 768px) {
-    display: ${props => props.isOpen ? 'flex' : 'none'};
+    display: ${(props) => (props.isOpen ? "flex" : "none")};
     flex-direction: column;
     position: absolute;
     top: 100%;
@@ -75,14 +78,22 @@ const NavBar = () => {
   return (
     <Nav>
       <NavContainer>
-        <Logo to="/">Glutopia Bakery</Logo>
+        <Logo to="/">
+        <LogoImage src="/images/GB.jpg" alt="Glutopia Bakery Logo" />
+        </Logo>
         <MenuButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          {isMenuOpen ? '✕' : '☰'}
+          {isMenuOpen ? "✕" : "☰"}
         </MenuButton>
         <NavLinks isOpen={isMenuOpen}>
-          <NavLink to="/services" onClick={() => setIsMenuOpen(false)}>Services</NavLink>
-          <NavLink to="/about" onClick={() => setIsMenuOpen(false)}>About</NavLink>
-          <NavLink to="/contact" onClick={() => setIsMenuOpen(false)}>Contact</NavLink>
+          <NavLink to="/services" onClick={() => setIsMenuOpen(false)}>
+            Services
+          </NavLink>
+          <NavLink to="/about" onClick={() => setIsMenuOpen(false)}>
+            About
+          </NavLink>
+          <NavLink to="/contact" onClick={() => setIsMenuOpen(false)}>
+            Contact
+          </NavLink>
           <SocialIcon platform="instagram" />
           <SocialIcon platform="facebook" />
           <SocialIcon platform="etsy" />

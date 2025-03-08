@@ -72,9 +72,6 @@ const ProductCard = ({ product }: Props) => {
       <Content>
         <ProductName>{product.name}</ProductName>
         <Price>${product.price.toFixed(2)}</Price>
-        <AddButton onClick={() => dispatch(addToCart(product))}>
-          Add to Cart
-        </AddButton>
       </Content>
     </Card>
   );

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useSelector } from "react-redux";
 import type { RootState } from "../../store/store";
 import type { Product } from "../../types/types";
@@ -14,7 +13,8 @@ import { MenuContainer, Title } from "./styles";
 export type Category = "weddings" | "birthdays" | "cupcakes" | "prices";
 
 const Menu = () => {
-  const [activeCategory, setActiveCategory] = useState<Category>("weddings");
+  // Remove useState and use Redux state instead
+  const activeCategory = useSelector((state: RootState) => state.menu.activeCategory);
   const { items, loading } = useSelector((state: RootState) => state.products);
 
   const filteredProducts = items.filter((product: Product) => {
@@ -27,10 +27,7 @@ const Menu = () => {
       <MenuContainer>
         <Title>Our Delicious Selection</Title>
         
-        <CategoryFilter 
-          activeCategory={activeCategory} 
-          setActiveCategory={setActiveCategory} 
-        />
+        <CategoryFilter />
         
         {activeCategory === "prices" ? (
           <PriceList />

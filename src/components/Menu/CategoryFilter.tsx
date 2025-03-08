@@ -1,39 +1,32 @@
-
+import { useDispatch, useSelector } from 'react-redux';
 import { FilterContainer, FilterButton } from "./styles";
 import { Category } from "./index";
+import { setCategory } from '../../store/menuSlice';
+import { RootState } from '../../store/store';
+import { useMemo } from 'react';
 
-type CategoryFilterProps = {
-  activeCategory: Category;
-  setActiveCategory: (category: Category) => void;
-}
+const CategoryFilter = () => {
+  const dispatch = useDispatch();
+  const activeCategory = useSelector((state: RootState) => state.menu.activeCategory);
 
-const CategoryFilter = ({ activeCategory, setActiveCategory }: CategoryFilterProps) => {
+  const categories = useMemo(() => [
+    { id: 'weddings', label: 'Weddings' },
+    { id: 'birthdays', label: 'Birthdays' },
+    { id: 'cupcakes', label: 'Cupcakes' },
+    { id: 'prices', label: 'Price List' }
+  ] as const, []);
+
   return (
     <FilterContainer>
-      <FilterButton
-        active={activeCategory === "weddings"}
-        onClick={() => setActiveCategory("weddings")}
-      >
-        Weddings
-      </FilterButton>
-      <FilterButton
-        active={activeCategory === "birthdays"}
-        onClick={() => setActiveCategory("birthdays")}
-      >
-        Birthdays
-      </FilterButton>
-      <FilterButton
-        active={activeCategory === "cupcakes"}
-        onClick={() => setActiveCategory("cupcakes")}
-      >
-        Cupcakes
-      </FilterButton>
-      <FilterButton
-        active={activeCategory === "prices"}
-        onClick={() => setActiveCategory("prices")}
-      >
-        Price List
-      </FilterButton>
+      {categories.map(({ id, label }) => (
+        <FilterButton
+          key={id}
+          active={activeCategory === id}
+          onClick={() => dispatch(setCategory(id as Category))}
+        >
+          {label}
+        </FilterButton>
+      ))}
     </FilterContainer>
   );
 };

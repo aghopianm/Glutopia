@@ -28,7 +28,7 @@ const HeroContent = styled.div`
 
 // Update existing Title
 const Title = styled.h1`
-  margin-top: 3rem;
+  margin-top: 4rem;
   font-size: 3.5rem;
   margin-bottom: 2rem;
   font-family: "Playfair Display", serif;

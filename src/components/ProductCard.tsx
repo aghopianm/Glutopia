@@ -41,28 +41,11 @@ const Price = styled.span`
   font-weight: bold;
 `;
 
-const AddButton = styled.button`
-  width: 100%;
-  padding: 0.8rem;
-  margin-top: 1rem;
-  background: #f8b042;
-  border: none;
-  color: white;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.2s ease;
-
-  &:hover {
-    background: #e9a033;
-  }
-`;
-
 type Props = {
   product: Product;
 }
 
 const ProductCard = ({ product }: Props) => {
-  const dispatch = useDispatch();
 
   return (
     <Card>

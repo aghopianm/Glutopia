@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { FaStar } from 'react-icons/fa';
+import styled from "styled-components";
+import { FaStar } from "react-icons/fa";
 
 const SectionTitle = styled.h2`
   text-align: center;
@@ -74,7 +74,7 @@ const ReviewDate = styled.span`
 const StarsContainer = styled.div`
   display: flex;
   gap: 0.2rem;
-  color: #FFD700;
+  color: #ffd700;
 `;
 
 const Reviews = () => {
@@ -84,27 +84,31 @@ const Reviews = () => {
       author: "Sarah Mitchell",
       date: "March 2024",
       rating: 5,
-      image: "/images/reviewer1.jpg"
+      image: "/images/reviewer1.jpg",
     },
     {
       text: "Our wedding cake was absolutely perfect. The team went above and beyond to create exactly what we wanted. The attention to detail was incredible.",
       author: "James & Emma Thompson",
       date: "February 2024",
       rating: 5,
-      image: "/images/reviewer2.jpg"
+      image: "/images/reviewer2.jpg",
     },
     {
       text: "Finally, a bakery that takes gluten-free seriously without compromising on taste. The cupcakes are divine and the service is exceptional!",
       author: "Rachel Peterson",
       date: "March 2024",
       rating: 5,
-      image: "/images/reviewer3.jpg"
-    }
+      image: "/images/reviewer3.jpg",
+    },
   ];
 
   const renderStars = (rating: number) => {
     return [...Array(5)].map((_, index) => (
-      <FaStar key={index} size={18} />
+      <FaStar
+        key={index}
+        size={18}
+        color={index < rating ? "#FFD700" : "#e4e5e9"}
+      />
     ));
   };
 
@@ -121,9 +125,7 @@ const Reviews = () => {
                 <ReviewDate>{review.date}</ReviewDate>
               </ReviewerInfo>
             </ReviewHeader>
-            <StarsContainer>
-              {renderStars(review.rating)}
-            </StarsContainer>
+            <StarsContainer>{renderStars(review.rating)}</StarsContainer>
             <ReviewText>"{review.text}"</ReviewText>
           </ReviewCard>
         ))}

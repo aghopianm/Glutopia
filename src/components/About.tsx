@@ -9,7 +9,7 @@ const AboutContainer = styled.div`
 `;
 
 const Section = styled.section`
-  padding: 4rem 2rem;
+  padding: 2rem 2rem;
 `;
 
 const VideoContainer = styled.div`
@@ -86,16 +86,16 @@ const About = () => {
                 care.
               </p>
             </Text>
-              <VideoContainer>
-                <ResponsiveIframe
-                  src="https://www.youtube.com/embed/nvBemQ3BWqo"
-                  title="Glutopia Bakery Introduction"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </VideoContainer>
           </Content>
-        </Section>
+          </Section>
+          <VideoContainer>
+            <ResponsiveIframe
+              src="https://www.youtube.com/embed/nvBemQ3BWqo"
+              title="Glutopia Bakery Introduction"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </VideoContainer>
       </AboutContainer>
       <Footer />
     </>

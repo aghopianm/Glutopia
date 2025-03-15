@@ -7,6 +7,15 @@ import type { AppDispatch, RootState } from "../store/store";
 import NavBar from "./NavBar";
 import ProductGrid from "./ProductGrid";
 import Footer from "./Footer";
+import Review from './Reviews';
+
+const Divider = styled.hr`
+  width: 80%;
+  max-width: 800px;
+  margin: 3rem auto;
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+`;
 
 const HeroSection = styled.div`
   min-height: 100vh;
@@ -159,6 +168,8 @@ const Home = () => {
           <CTAButton onClick={() => navigate("/services")}>
             Explore Our Services
           </CTAButton>
+          <Divider />
+          <Review />
         </HeroContent>
       </HeroSection>
       <Section>

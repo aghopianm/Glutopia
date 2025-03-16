@@ -1,4 +1,4 @@
-import { Category } from "../Menu";
+import { Category } from "../About/About";
 
 export type CategoryData = {
   description: string;

@@ -10,7 +10,7 @@ import {
   InfoItem,
   MapContainer,
   HoursContainer
-} from "./StylesContact";
+} from "./ContactStyles";
 
 const Contact = () => {
   return (

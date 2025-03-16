@@ -3,9 +3,9 @@ import { Provider } from "react-redux";
 import { store } from "./store/store";
 import GlobalStyles from "./styles/GlobalStyles";
 import Home from "./components/Home";
-import About from "./components/About";
+import About from "./components/About/About";
 import Contact from "./components/Contact/Contact";
-import Menu from "./components/Menu";
+import Menu from "./components/About/About";
 import "./components/styles.css";
 
 const App = () => {

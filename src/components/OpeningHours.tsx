@@ -1,26 +1,4 @@
-import styled from 'styled-components';
-
-const HoursGrid = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  min-width: 280px;
-`;
-
-const DayRow = styled.div`
-  display: grid;
-  grid-template-columns: 120px 1fr;
-  align-items: center;
-  gap: 2rem;
-`;
-
-const Day = styled.span`
-  font-weight: 600;
-`;
-
-const Hours = styled.span`
-  color: inherit;
-`;
+import { HoursGrid, DayRow, Day, Hours } from "./OpeningHoursStyles";
 
 const OpeningHours = () => {
   const schedule = [

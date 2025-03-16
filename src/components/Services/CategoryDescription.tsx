@@ -3,7 +3,7 @@ import { DescriptionContainer } from "./styles";
 import { categoryContent } from "../data/menuData";
 import { Category } from "./index";
 
-interface CategoryDescriptionProps {
+type CategoryDescriptionProps = {
   category: Category;
 }
 

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Category } from '../components/About/About';
+import { Category } from "../types/types";
 
 type MenuState = {
   activeCategory: Category;

@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import type { Product } from '../types/types';
+import styled from "styled-components";
+import type { Product } from "../types/types";
 
 const Card = styled.div`
   background: white;
@@ -31,7 +31,7 @@ const Content = styled.div`
 const ProductName = styled.h3`
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
 `;
 
 const Price = styled.span`
@@ -42,10 +42,9 @@ const Price = styled.span`
 
 type Props = {
   product: Product;
-}
+};
 
 const ProductCard = ({ product }: Props) => {
-
   return (
     <Card>
       <ImageContainer>

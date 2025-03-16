@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import ProductCard from './ProductCard';
-import type { Product } from '../types/types';
+import styled from "styled-components";
+import ProductCard from "./ProductCard";
+import type { Product } from "../types/types";
 
 const Grid = styled.div`
   display: grid;
@@ -25,7 +25,7 @@ const LoadingSpinner = styled.div`
 type Props = {
   products: Product[];
   loading: boolean;
-}
+};
 
 const ProductGrid = ({ products, loading }: Props) => {
   if (loading) {
@@ -34,7 +34,7 @@ const ProductGrid = ({ products, loading }: Props) => {
 
   return (
     <Grid>
-      {products.map(product => (
+      {products.map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}
     </Grid>

@@ -10,3 +10,5 @@ export type Product = {
   export type CartItem = Product & {
     quantity: number;
   }
+
+  export type Category = "weddings" | "birthdays" | "cupcakes" | "prices";

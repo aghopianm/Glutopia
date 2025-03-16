@@ -1,12 +1,12 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { store } from './store/store';
-import GlobalStyles from './styles/GlobalStyles';
-import Home from './components/Home';
-import About from './components/About';
-import Contact from './components/Contact';
-import Menu from './components/Menu';
-import './components/styles.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
+import GlobalStyles from "./styles/GlobalStyles";
+import Home from "./components/Home";
+import About from "./components/About";
+import Contact from "./components/Contact/Contact";
+import Menu from "./components/Menu";
+import "./components/styles.css";
 
 const App = () => {
   return (
